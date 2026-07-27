@@ -1,3 +1,7 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/geist/400.css";
+@import "@fontsource/geist/700.css";
 @import "tailwindcss";
 
 /* Design tokens. Ajoute ici tout ce qui doit rester cohérent entre projets. */
@@ -27,8 +31,8 @@
   --color-black: #0a0a0a;
   --color-white: #ffffff;
 
-  --font-display: "Geist", "Inter", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-geist: "Geist", "Inter", sans-serif;
+  --font-inter: "Inter", sans-serif;
 
   --ease-creative: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -40,7 +44,7 @@ html {
 body {
   background: var(--color-paper);
   color: var(--color-ink);
-  font-family: var(--font-body);
+  font-family: var(--font-geist);
 }
 
 /* Empêche le flash de contenu non animé sur les éléments qui attendent leur intro GSAP */

@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <header className="fixed right-14 top-14">
       <motion.div
-        className="w-100 h-150 bg-primary-2 rounded-3xl relative"
+        className="bg-primary-2 rounded-3xl relative"
         variants={menuVariants}
         animate={isActive ? "open" : "closed"}
       >

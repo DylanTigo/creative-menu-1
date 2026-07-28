@@ -10,7 +10,7 @@ export default function Button({
 }) {
   return (
     <button
-      className="h-10 w-25 bg-primary-3 rounded-full cursor-pointer uppercase overflow-hidden"
+      className="h-10 w-25 bg-primary-2 rounded-full cursor-pointer uppercase overflow-hidden absolute right-0 top-0"
       onClick={() => setIsActive(!isActive)}
     >
       <motion.div

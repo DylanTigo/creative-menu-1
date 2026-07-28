@@ -51,3 +51,15 @@ body {
 [data-animate] {
   visibility: hidden;
 }
+
+@layer utility {
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .transition-base {
+    @apply transition-all ease-[1,0,0,1] duration-500
+  }
+}

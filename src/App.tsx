@@ -104,9 +104,9 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="bg-white h-[70vh] px-14 pt-10 pb-20 flex flex-col justify-center">
-        <p className="text-3xl text-center max-w-2/3 mx-auto">
-          Show up and run. FlowBeat holds the tempo - pace, breath, and music on
+      <section className="bg-white h-screen px-14 pt-10 pb-20 flex flex-col justify-center">
+        <p className="text-4xl text-center max-w-2/3 mx-auto">
+          Show up and run. FlowBeat holds the tempo with pace, breath, and music on
           the same beat, from the first step to the last.
         </p>
       </section>

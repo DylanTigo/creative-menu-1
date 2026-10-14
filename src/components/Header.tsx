@@ -12,10 +12,10 @@ export default function Header() {
       initial={
         reduce
           ? { opacity: 0 }
-          : { opacity: 0, transform: "translateY(-100%)" }
+          : { opacity: 0, transform: "translateY(-200%)" }
       }
       animate={{ opacity: 1, transform: "translateY(0%)" }}
-      transition={{ duration: reduce ? 0.2 : 0.6, ease }}
+      transition={{ duration: reduce ? 0.2 : 0.6, ease, delay: reduce ? 0 : 0.6 }}
     >
       <div className="text-white text-xl font-medium">FlowBeat</div>
       <nav className="flex gap-8">

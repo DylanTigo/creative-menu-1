@@ -1,4 +1,5 @@
 import { cubicBezier, motion } from "motion/react";
+import PerspectiveText from "./PerspectiveText";
 
 const Links = [
   { label: "Home", href: "/" },
@@ -79,7 +80,9 @@ export default function Nav() {
             exit="exit"
             initial="initial"
           >
-            <a href={link.href}>{link.label}</a>
+            <a href={link.href} className="inline-block overflow-hidden group">
+              <PerspectiveText label={link.label} />
+            </a>
           </motion.div>
         ))}
       </div>
@@ -94,7 +97,9 @@ export default function Nav() {
             exit="exit"
             initial="initial"
           >
-            <a href={link.href}>{link.label}</a>
+            <a href={link.href} className="inline-block overflow-hidden group">
+              <PerspectiveText label={link.label} />
+            </a>
           </motion.div>
         ))}
       </div>

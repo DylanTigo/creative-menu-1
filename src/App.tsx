@@ -1,5 +1,6 @@
 import FloatingMenu from "./components/FloatingMenu";
 import Header from "./components/Header";
+import PerspectiveText from "./components/PerspectiveText";
 
 function App() {
   return (
@@ -20,15 +21,15 @@ function App() {
           <div className="flex gap-4">
             <button
               type="button"
-              className="bg-primary-1 w-fit text-black py-4 px-8 rounded-full mt-10"
+              className="bg-primary-1 w-fit text-black py-4 px-8 rounded-full mt-10 cursor-pointer overflow-hidden group"
             >
-              Start a run
+              <PerspectiveText label="Start a run" />
             </button>
             <button
               type="button"
-              className="bg-secondary-1 w-fit text-white bg-black/50 backdrop-blur-md py-4 px-8 rounded-full mt-10"
+              className="bg-secondary-1 w-fit text-white bg-black/50 backdrop-blur-md py-4 px-8 rounded-full mt-10 cursor-pointer overflow-hidden group"
             >
-              How it works
+              <PerspectiveText label="How it works" />
             </button>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
+import PerspectiveText from "./PerspectiveText";
 
 export default function Button({
   isActive,
@@ -19,33 +20,12 @@ export default function Button({
         transition={{ duration: 0.5, ease: [1, 0, 0, 1] }}
       >
         <div className="w-full h-full group">
-          <PerspectiveText label="Menu" />
+          <PerspectiveText label="Menu" className="size-full" />
         </div>
         <div className="w-full h-full group bg-black text-white">
-          <PerspectiveText label="Close" />
+          <PerspectiveText label="Close" className="size-full" />
         </div>
       </motion.div>
     </button>
-  );
-}
-
-function PerspectiveText({
-  label,
-  className,
-}: {
-  label: string;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`size-full relative flex-center group-hover:rotate-x-90 transition-base transform-3d ${className || ""}`}
-    >
-      <p className="group-hover:-translate-y-full group-hover:opacity-0 transition-base">
-        {label}
-      </p>
-      <p className="absolute -rotate-x-90 opacity-0 group-hover:opacity-100 translate-y-2  transition-base">
-        {label}
-      </p>
-    </div>
   );
 }

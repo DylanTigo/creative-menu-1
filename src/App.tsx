@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import FloatingMenu from "./components/FloatingMenu";
 import Header from "./components/Header";
@@ -41,6 +42,27 @@ const ctas = [
 
 function App() {
   const reduce = useReducedMotion();
+  const quoteRef = useRef<HTMLElement>(null);
+  const [gradientOn, setGradientOn] = useState(false);
+  const [quoteRevealed, setQuoteRevealed] = useState(false);
+
+  useEffect(() => {
+    const update = () => {
+      const section = quoteRef.current;
+      if (!section) return;
+      const entered = window.innerHeight - section.getBoundingClientRect().top;
+      setQuoteRevealed(entered >= window.innerHeight * 0.3);
+      setGradientOn(entered >= section.offsetHeight * 0.7);
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   return (
     <main className="relative">
@@ -104,11 +126,43 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="bg-white h-screen px-14 pt-10 pb-20 flex flex-col justify-center">
-        <p className="text-4xl text-center max-w-2/3 mx-auto">
-          Show up and run. FlowBeat holds the tempo with pace, breath, and music on
-          the same beat, from the first step to the last.
-        </p>
+      <section
+        ref={quoteRef}
+        className="bg-white h-screen px-14 pt-10 pb-20 flex flex-col justify-center"
+      >
+        <motion.p
+          className="text-4xl text-center max-w-200 mx-auto"
+          initial={false}
+          animate={
+            reduce
+              ? { opacity: quoteRevealed ? 1 : 0 }
+              : {
+                  opacity: quoteRevealed ? 1 : 0,
+                  clipPath: quoteRevealed
+                    ? "inset(0% 0% 0% 0%)"
+                    : "inset(0% 0% 100% 0%)",
+                  transform: quoteRevealed
+                    ? "translateY(0px)"
+                    : "translateY(28px)",
+                }
+          }
+          transition={{ duration: reduce ? 0.2 : 0.7, ease }}
+        >
+          Show up and run. FlowBeat holds the tempo with{" "}
+          <span className="relative inline-block">
+            pace, breath, and music
+            <motion.span
+              aria-hidden="true"
+              className="quote-gradient pointer-events-none absolute inset-0 bg-clip-text text-transparent"
+              initial={false}
+              animate={{ opacity: gradientOn ? 1 : 0 }}
+              transition={{ duration: reduce ? 0.2 : 0.45, ease }}
+            >
+              pace, breath, and music
+            </motion.span>
+          </span>{" "}
+          on the same beat, from the first step to the last.
+        </motion.p>
       </section>
     </main>
   );
